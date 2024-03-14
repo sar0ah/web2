@@ -10,17 +10,41 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        
         <?php
-        // put your code here
-        define("NAME", "Sarah");
-        $numberOfToday= rand(1,10);
-        echo "<p>hello ".NAME."!</p>";
-        echo "<p> your nymber today is </p>".$numberOfToday;
-        if($numberOfToday >0 && $numberOfToday<6)
-            echo"<p> good luck today ! </p>";
-        else
-            echo "<p>have a nice day !</p>";
+$student=array();
+$student["Ahmed"]=array("quizzes"=>10, "homework"=>9, "midterm"=>9.5,"project"=>10,"project title"=>"Planets");
+$student["Bassam"]=array("quizzes"=>9, "homework"=>8.5, "midterm"=>9,"project"=>8,"project title"=>"Minerls");
+$student["Majed"]=array("quizzes"=>9.5, "homework"=>10, "midterm"=>10,"project"=>9.5,"project title"=>"Planets");
+
         ?>
+        <table><tr><th>Name</th>
+                <th>Quizzes</th>
+                <th>Homework</th>
+                <th>Midterm</th>
+                <th>Project</th>
+                <th>Project title</th>
+                <th>Total work</th>
+            </tr>
+            <?php 
+                    foreach ($student as $key => $value) {
+                        echo '<tr> <td>'.$key.'</td>';
+                        
+                        
+                        
+                        
+                        foreach ($value as $k => $val) {
+                            echo '<td>'.$val.'</td>';
+                            global $total;
+                            $total=(int)$total;
+                            $val=(int)$val;
+                            $total+=$val;
+                            
+                            
+                        }
+                        echo '<td>'.$total.'</td>';
+                        echo '</tr>';
+                    }
+            ?>
+        </table>
     </body>
 </html>
